@@ -1,0 +1,25 @@
+public String extractData()
+		{
+		String data=null;
+		
+		XmlTextReader reader = new XmlTextReader ("D:/Pega Robotics Studio/Projects/CountryData.xml");
+            while (reader.Read()) 
+            {
+                switch (reader.NodeType) 
+                {
+                                    
+
+
+                    case XmlNodeType.Text:                          					data=data+reader.Value;
+					   
+                        break;
+                 
+ 	
+
+                }
+            }
+            
+		return data;
+		
+		
+		}
