@@ -1,25 +1,28 @@
-public String extractData()
+public List<String> extractData()
 		{
-		String data=null;
+		
+		 List<String> dataList=new List<String>();
 		
 		XmlTextReader reader = new XmlTextReader ("D:/Pega Robotics Studio/Projects/CountryData.xml");
             while (reader.Read()) 
             {
                 switch (reader.NodeType) 
                 {
-                                    
+                                
 
 
-                    case XmlNodeType.Text:                          					data=data+reader.Value;
-					   
-                        break;
-                 
+                    case XmlNodeType.Text: 
+
+					if(reader.Value != "India")
+                      dataList.Add(reader.Value);
+					  
+                        break;                
  	
 
                 }
             }
             
-		return data;
+		return dataList;
 		
 		
 		}
