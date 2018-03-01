@@ -1,0 +1,20 @@
+public string FindText(Microsoft.Office.Interop.Word.Document doc, string searchstring)
+		{
+
+		   int i=0;
+		   string status=null;
+		   foreach(Microsoft.Office.Interop.Word.Paragraph para in doc.Paragraphs)
+		   {
+		     i++;
+
+			 if(para.Range.Text.Contains(searchstring))
+			 {
+			    MessageBox.Show(string.Format("Index {0}, Text:{1}",i, para.Range.Text));
+				status=para.Range.Text;
+				return status;
+			 
+			 }
+		   
+		   }
+		   return status;
+		}
