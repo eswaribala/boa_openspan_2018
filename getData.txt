@@ -1,0 +1,25 @@
+public String[] getData()
+		{
+		SqlDataReader dr;
+      SqlConnection con = new SqlConnection("Password=vignesh;Persist Security Info=True;User ID=sa;Initial Catalog=BOADB;Data Source=DESKTOP-55AGI0I\\SQLEXPRESS");
+      SqlCommand cmd = new SqlCommand("SELECT currencycode FROM currencyInfo", con);
+      con.Open();
+      cmd.CommandType = CommandType.Text;
+      dr = cmd.ExecuteReader();
+	  DataTable dt = new DataTable();
+		dt.Load(dr);
+		int numRows= dt.Rows.Count;
+       String[] data=new String[numRows];
+	   int i=0;
+	   foreach(DataRow row in dt.Rows)
+		{
+		      data[i] = row["currencycode"].ToString();
+			i++;
+			}
+
+	 
+		return data;
+		
+		
+		
+		}
